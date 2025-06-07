@@ -14,7 +14,7 @@ struct ScenesCardView: View {
                     VStack {
                         HStack {
                             Text("Scenes")
-                                .font(.headline)
+                                .font(.headline).foregroundColor(Color.gray)
                             Spacer()
                             Image(systemName: "arrow.right")
                         }

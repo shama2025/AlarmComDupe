@@ -9,21 +9,29 @@ import SwiftUI
 
 struct MainView: View {
     var body: some View {
-        ZStack {
-            Color(.lightGray)
-                .ignoresSafeArea(edges: .all)
+        ZStack(alignment: .bottom) {
+            HeaderView(headerText: "Alarm.Com").zIndex(2)
+            VStack{
+                ScrollView {
+                    VStack(spacing: 20) {
+                        
+                        ScenesCardView()
+                        SecuritySystemCardView()
+                        LocksCardView()
+                        LightsCardView()
+                        
+                        Spacer(minLength: 80)
+                    }
+                    .padding()
+                }
 
-            VStack {
-                HeaderView(headerText: "Alarm.Com")
-                /** Add Card Elements
-                         Security
-                         Locks
-                         Lights
-                 */
-                ScenesCardView()
-                NavigationView()
             }
-        }
+                    
+                    NavigationView()
+                        .zIndex(1)
+                        .shadow(radius: 5)
+                }
+        
     }
 }
 

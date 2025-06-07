@@ -9,7 +9,34 @@ import SwiftUI
 
 struct SecuritySystemCardView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        CardView(height: 200){
+            VStack(){
+                HStack{
+                    Text("Security System").font(.headline).foregroundColor(Color.gray)
+                     Spacer()
+                     Image(systemName: "arrow.right")
+                 }
+                Spacer()
+                HStack{
+                    VStack{
+                        // Will need boolean value to change image/text color
+                        // isArmed: True -> Red
+                        // isArmed: False -> Green
+                        Image(systemName: "shield")
+                            .resizable()
+                            .scaledToFit()
+                            .foregroundColor(.green)
+                    }
+                    VStack{
+                        Text("System").font(.title2)
+                        Text("Disarmed").foregroundColor(.green).bold()                }
+                   
+                }
+                Spacer()
+            }
+            // Has the ability to swipe and update view
+            
+        }
     }
 }
 
