@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct CardView<Content: View>: View {
-    var width: CGFloat? = nil
     var height: CGFloat? = nil
     var content: () -> Content
 
@@ -17,7 +16,7 @@ struct CardView<Content: View>: View {
             content() // 👈 your custom content goes here
         }
         .padding()
-        .frame(width: width, height: height)
+        .frame(width: 385, height: height)
         .background(Color.white)
         .cornerRadius(7)
         .shadow(color: .black.opacity(0.1), radius: 4, x: 0, y: 2)
