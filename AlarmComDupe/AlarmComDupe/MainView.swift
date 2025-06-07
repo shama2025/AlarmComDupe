@@ -14,14 +14,14 @@ struct MainView: View {
             VStack {
                 ScrollView {
                     VStack(spacing: 20) {
+                        Spacer()
                         ScenesCardView()
                         SecuritySystemCardView()
                         LocksCardView()
                         LightsCardView()
 
                         Spacer(minLength: 80)
-                    }
-                    .padding()
+                    }.padding()
                 }
             }
 
