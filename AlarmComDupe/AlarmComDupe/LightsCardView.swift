@@ -15,120 +15,118 @@ struct LightsCardView: View {
     @State private var isEditingBedroom = false
     @State private var isEditingPatio = false
     @State private var isEditingLivingRoom = false
-    
+
     var body: some View {
-        CardView(height: 250){
-            VStack{
-                HStack{
+        CardView(height: 250) {
+            VStack {
+                HStack {
                     Text("Lights").font(.headline).foregroundColor(Color.gray)
-                     Spacer()
-                     Image(systemName: "arrow.right")
-                 }
+                    Spacer()
+                    Image(systemName: "arrow.right")
+                }
                 Spacer()
-                VStack{
-                    HStack{
+                VStack {
+                    HStack {
                         Image(systemName: "lightbulb")
-                        VStack{
+                        VStack {
                             Text("Bedroom")
                             Slider(
-                                    value: $bedroomSpeed,
-                                    in: 0...100,
-                                    step: 1
+                                value: $bedroomSpeed,
+                                in: 0 ... 100,
+                                step: 1
                             ) {
-                                    Text("Speed")
-                                } minimumValueLabel: {
-                                    Text("")
-                                } maximumValueLabel: {
-                                    Text("%"+String(format: "%.0f", bedroomSpeed))
-                                } onEditingChanged: { editing in
-                                    isEditingBedroom = editing
-                                }.tint(.yellow)
+                                Text("Speed")
+                            } minimumValueLabel: {
+                                Text("")
+                            } maximumValueLabel: {
+                                Text("%" + String(format: "%.0f", bedroomSpeed))
+                            } onEditingChanged: { editing in
+                                isEditingBedroom = editing
+                            }.tint(.yellow)
                         }
-                        
-                        Button{
+
+                        Button {
                             print("Bedroom Lights Work!")
-                        }label: {
+                        } label: {
                             Image(systemName: "lightbulb.fill").frame(width: 20, height: 20)
 
                         }.foregroundColor(.black)
-                        
-                        Button{
+
+                        Button {
                             print("Bedroom Lights Work!")
-                        }label:{
+                        } label: {
                             Image(systemName: "lightbulb.fill").frame(width: 20, height: 20)
                         }.foregroundColor(.yellow)
-                        
                     }
                     Divider()
                     Spacer()
-                    HStack{
+                    HStack {
                         Image(systemName: "lightbulb")
-                        VStack{
+                        VStack {
                             Text("Patio")
                             Slider(
-                                    value: $patioSpeed,
-                                    in: 0...100,
-                                    step: 1
+                                value: $patioSpeed,
+                                in: 0 ... 100,
+                                step: 1
                             ) {
-                                    Text("Speed")
-                                } minimumValueLabel: {
-                                    Text("")
-                                } maximumValueLabel: {
-                                    Text("%"+String(format: "%.0f", patioSpeed))
-                                } onEditingChanged: { editing in
-                                    isEditingPatio = editing
-                                }.tint(.yellow)
+                                Text("Speed")
+                            } minimumValueLabel: {
+                                Text("")
+                            } maximumValueLabel: {
+                                Text("%" + String(format: "%.0f", patioSpeed))
+                            } onEditingChanged: { editing in
+                                isEditingPatio = editing
+                            }.tint(.yellow)
                         }
-                        
-                        Button{
+
+                        Button {
                             print("Patio Lights Work!")
-                        }label: {
+                        } label: {
                             Image(systemName: "lightbulb.fill").frame(width: 20, height: 20)
 
                         }.foregroundColor(.black)
-                        
-                        Button{
+
+                        Button {
                             print("Patio Lights Work!")
-                        }label:{
+                        } label: {
                             Image(systemName: "lightbulb.fill").frame(width: 20, height: 20)
                         }.foregroundColor(.yellow)
                     }
                     Spacer()
-                    HStack{
+                    HStack {
                         Image(systemName: "lightbulb")
-                        VStack{
+                        VStack {
                             Text("Living Room")
                             Slider(
-                                    value: $livingRoomSpeed,
-                                    in: 0...100,
-                                    step: 1
+                                value: $livingRoomSpeed,
+                                in: 0 ... 100,
+                                step: 1
                             ) {
-                                    Text("Speed")
-                                } minimumValueLabel: {
-                                    Text("")
-                                } maximumValueLabel: {
-                                    Text("%"+String(format: "%.0f", livingRoomSpeed))
-                                } onEditingChanged: { editing in
-                                    isEditingLivingRoom = editing
-                                }.tint(.yellow)
+                                Text("Speed")
+                            } minimumValueLabel: {
+                                Text("")
+                            } maximumValueLabel: {
+                                Text("%" + String(format: "%.0f", livingRoomSpeed))
+                            } onEditingChanged: { editing in
+                                isEditingLivingRoom = editing
+                            }.tint(.yellow)
                         }
-                        
-                        Button{
+
+                        Button {
                             print("Living Room Lights Work!")
-                            
-                        }label: {
+
+                        } label: {
                             Image(systemName: "lightbulb.fill").frame(width: 20, height: 20)
                         }.foregroundColor(.black)
-                        
-                        Button{
+
+                        Button {
                             print("Living Room Lights Work!")
-                        }label:{
+                        } label: {
                             Image(systemName: "lightbulb.fill").frame(width: 20, height: 20)
                         }.foregroundColor(.yellow)
                     }
                     Spacer()
                 }
-               
             }
         }
     }

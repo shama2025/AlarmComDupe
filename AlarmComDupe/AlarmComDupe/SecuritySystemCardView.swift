@@ -9,16 +9,16 @@ import SwiftUI
 
 struct SecuritySystemCardView: View {
     var body: some View {
-        CardView(height: 200){
-            VStack(){
-                HStack{
+        CardView(height: 200) {
+            VStack {
+                HStack {
                     Text("Security System").font(.headline).foregroundColor(Color.gray)
-                     Spacer()
-                     Image(systemName: "arrow.right")
-                 }
+                    Spacer()
+                    Image(systemName: "arrow.right")
+                }
                 Spacer()
-                HStack{
-                    VStack{
+                HStack {
+                    VStack {
                         // Will need boolean value to change image/text color
                         // isArmed: True -> Red
                         // isArmed: False -> Green
@@ -27,15 +27,14 @@ struct SecuritySystemCardView: View {
                             .scaledToFit()
                             .foregroundColor(.green)
                     }
-                    VStack{
+                    VStack {
                         Text("System").font(.title2)
-                        Text("Disarmed").foregroundColor(.green).bold()                }
-                   
+                        Text("Disarmed").foregroundColor(.green).bold()
+                    }
                 }
                 Spacer()
             }
             // Has the ability to swipe and update view
-            
         }
     }
 }
