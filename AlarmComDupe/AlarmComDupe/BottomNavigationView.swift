@@ -7,20 +7,24 @@
 
 import SwiftUI
 
-struct NavigationView: View {
+struct BottomNavigationView: View {
     var body: some View {
         Spacer()
         HStack {
             Spacer()
-            VStack {
-                Image(systemName: "house")
-                Text("Home")
-            }
+            NavigationLink(destination: HomeView()) {
+                VStack {
+                    Image(systemName: "house")
+                    Text("Home")
+                }
+            }.foregroundColor(.black)
             Spacer()
-            VStack {
-                Image(systemName: "video")
-                Text("Video")
-            }
+                NavigationLink(destination: VideoView()) {
+                    VStack {
+                    Image(systemName: "video")
+                    Text("Video")
+                }
+            }.foregroundColor(.black)
             Spacer()
             VStack {
                 Image(systemName: "waveform.path.ecg")
@@ -38,5 +42,5 @@ struct NavigationView: View {
 }
 
 #Preview {
-    NavigationView()
+    BottomNavigationView()
 }

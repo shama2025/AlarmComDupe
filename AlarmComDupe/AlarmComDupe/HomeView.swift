@@ -7,10 +7,13 @@
 
 import SwiftUI
 
-struct MainView: View {
+struct HomeView: View {
     var body: some View {
         ZStack(alignment: .bottom) {
-            HeaderView(headerText: "Alarm.Com").zIndex(2)
+            Color(.lightGray).opacity(0.25)
+            HeaderView{
+                Text("Alarm.Com").foregroundColor(.white).font(.title)
+            }.zIndex(2)
             VStack {
                 ScrollView {
                     VStack(spacing: 20) {
@@ -25,13 +28,16 @@ struct MainView: View {
                 }
             }
 
-            NavigationView()
-                .zIndex(1)
-                .shadow(radius: 5)
+            NavigationStack{
+                BottomNavigationView()
+                    .zIndex(1)
+                    .shadow(radius: 5)
+            }.navigationBarBackButtonHidden(true)
+          
         }
     }
 }
 
 #Preview {
-    MainView()
+    HomeView()
 }

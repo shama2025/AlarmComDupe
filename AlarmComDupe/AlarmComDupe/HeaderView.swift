@@ -7,20 +7,23 @@
 
 import SwiftUI
 
-struct HeaderView: View {
-    var headerText: String
+struct HeaderView<Content: View>: View {
+    var header: () -> Content
 
     var body: some View {
         ZStack(alignment: .top) {
-            Color(red: 204 / 255, green: 85 / 255, blue: 0 / 255).ignoresSafeArea(.all).frame(height: 35)
+            Color(red: 204 / 255, green: 85 / 255, blue: 0 / 255)
+                .ignoresSafeArea(.all)
+                .frame(height: 35)
             VStack {
-                Text(headerText).foregroundColor(.white).font(.title)
+                header()
                 Spacer()
             }
         }
     }
 }
 
-#Preview {
-    HeaderView(headerText: "Alarm.com")
-}
+
+//#Preview {
+//    HeaderView(headerText: "Alarm.com")
+//}

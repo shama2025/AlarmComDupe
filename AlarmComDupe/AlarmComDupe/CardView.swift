@@ -13,7 +13,7 @@ struct CardView<Content: View>: View {
 
     var body: some View {
         VStack {
-            content() // 👈 your custom content goes here
+            content()
         }
         .padding()
         .frame(width: 385, height: height)
