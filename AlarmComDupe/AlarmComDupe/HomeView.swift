@@ -1,5 +1,5 @@
 //
-//  MainView.swift
+//  HomeView.swift
 //  AlarmComDupe
 //
 //  Created by Marcus Shaffer on 6/6/25.
@@ -11,7 +11,7 @@ struct HomeView: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             Color(.lightGray).opacity(0.25)
-            HeaderView{
+            HeaderView {
                 Text("Alarm.Com").foregroundColor(.white).font(.title)
             }.zIndex(2)
             VStack {
@@ -28,12 +28,11 @@ struct HomeView: View {
                 }
             }
 
-            NavigationStack{
+            NavigationStack {
                 BottomNavigationView()
                     .zIndex(1)
                     .shadow(radius: 5)
             }.navigationBarBackButtonHidden(true)
-          
         }
     }
 }

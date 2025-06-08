@@ -12,11 +12,11 @@ struct LightsCardView: View {
     @State private var bedroomSpeed = 50.0
     @State private var patioSpeed = 50.0
     @State private var livingRoomSpeed = 50.0
-    
+
     @State private var isEditingBedroom = false
     @State private var isEditingPatio = false
     @State private var isEditingLivingRoom = false
-    
+
     @State private var isPatioLightOn = false
     @State private var isLivingRoomLightOn = false
     @State private var isBedroomLightOn = false
@@ -56,14 +56,14 @@ struct LightsCardView: View {
                         } label: {
                             Image(systemName: "lightbulb.fill").frame(width: 20, height: 20)
 
-                        }.foregroundColor(isBedroomLightOn ? .yellow :.black)
+                        }.foregroundColor(isBedroomLightOn ? .yellow : .black)
 
                         Button {
                             print("Bedroom Lights Work!")
                             isBedroomLightOn = false
                         } label: {
                             Image(systemName: "lightbulb.fill").frame(width: 20, height: 20)
-                        }.foregroundColor(!isBedroomLightOn ? .yellow :.black)
+                        }.foregroundColor(!isBedroomLightOn ? .yellow : .black)
                     }
                     Divider()
                     Spacer()
@@ -92,14 +92,14 @@ struct LightsCardView: View {
                         } label: {
                             Image(systemName: "lightbulb.fill").frame(width: 20, height: 20)
 
-                        }.foregroundColor(isPatioLightOn ? .yellow :.black)
+                        }.foregroundColor(isPatioLightOn ? .yellow : .black)
 
                         Button {
                             print("Patio Lights Work!")
                             isPatioLightOn = false
                         } label: {
                             Image(systemName: "lightbulb.fill").frame(width: 20, height: 20)
-                        }.foregroundColor(!isPatioLightOn ? .yellow :.black)
+                        }.foregroundColor(!isPatioLightOn ? .yellow : .black)
                     }
                     Spacer()
                     HStack {
@@ -126,14 +126,14 @@ struct LightsCardView: View {
                             isLivingRoomLightOn = true
                         } label: {
                             Image(systemName: "lightbulb.fill").frame(width: 20, height: 20)
-                        }.foregroundColor(isLivingRoomLightOn ? .yellow :.black)
+                        }.foregroundColor(isLivingRoomLightOn ? .yellow : .black)
 
                         Button {
                             print("Living Room Lights Work!")
                             isLivingRoomLightOn = false
                         } label: {
                             Image(systemName: "lightbulb.fill").frame(width: 20, height: 20)
-                        }.foregroundColor(!isLivingRoomLightOn ? .yellow :.black)
+                        }.foregroundColor(!isLivingRoomLightOn ? .yellow : .black)
                     }
                     Spacer()
                 }

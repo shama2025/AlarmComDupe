@@ -1,5 +1,5 @@
 //
-//  NavigationView.swift
+//  BottomNavigationView.swift
 //  AlarmComDupe
 //
 //  Created by Marcus Shaffer on 6/6/25.
@@ -19,8 +19,8 @@ struct BottomNavigationView: View {
                 }
             }.foregroundColor(.black)
             Spacer()
-                NavigationLink(destination: VideoView()) {
-                    VStack {
+            NavigationLink(destination: VideoView()) {
+                VStack {
                     Image(systemName: "video")
                     Text("Video")
                 }

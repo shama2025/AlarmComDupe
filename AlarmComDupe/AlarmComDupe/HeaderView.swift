@@ -23,7 +23,6 @@ struct HeaderView<Content: View>: View {
     }
 }
 
-
-//#Preview {
+// #Preview {
 //    HeaderView(headerText: "Alarm.com")
-//}
+// }
