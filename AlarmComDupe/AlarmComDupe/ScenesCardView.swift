@@ -10,7 +10,7 @@ import SwiftUI
 struct ScenesCardView: View {
     var body: some View {
         VStack(spacing: 20) {
-            CardView(height: 150) {
+            CardView {
                 VStack {
                     HStack {
                         Text("Scenes")

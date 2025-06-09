@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct SecuritySystemCardView: View {
+    @State var isArmed = true
+
     var body: some View {
-        CardView(height: 200) {
+        CardView {
             VStack {
                 HStack {
                     Text("Security System").font(.headline).foregroundColor(Color.gray)
@@ -19,13 +21,11 @@ struct SecuritySystemCardView: View {
                 Spacer()
                 HStack {
                     VStack {
-                        // Will need boolean value to change image/text color
-                        // isArmed: True -> Red
-                        // isArmed: False -> Green
                         Image(systemName: "shield")
                             .resizable()
-                            .scaledToFit()
-                            .foregroundColor(.green)
+                            .aspectRatio(contentMode: .fit)
+                            .foregroundColor(isArmed ? .green : .red)
+                            .frame(maxWidth: 200, maxHeight: 200)
                     }
                     VStack {
                         Text("System").font(.title2)

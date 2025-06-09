@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct LocksCardView: View {
+    @State var isLocked: Bool = true
+
     var body: some View {
-        CardView(height: 150) {
+        CardView {
             VStack {
                 HStack {
                     Text("Locks").font(.headline).foregroundColor(Color.gray)
@@ -19,17 +21,15 @@ struct LocksCardView: View {
                 Spacer()
                 HStack {
                     VStack {
-                        // Will need boolean value to change image/text color
-                        // isLocked: True -> Red
-                        // isLocked: False -> Green
-                        Image(systemName: "lock.open.fill") // "lock.fill"
+                        Image(systemName: isLocked ? "lock.fill" : "lock.open.fill")
                             .resizable()
-                            .scaledToFit()
-                            .foregroundColor(.green)
+                            .aspectRatio(contentMode: .fit)
+                            .foregroundColor(isLocked ? .green : .red)
+                            .frame(maxWidth: 200, maxHeight: 200)
                     }
                     VStack {
                         Text("Front Door").font(.title2)
-                        Text("Unlocked").foregroundColor(.green).bold()
+                        Text(isLocked ? "Locked" : "Unlocked").foregroundColor(isLocked ? .green : .red).bold()
                     }
                 }
                 Spacer()

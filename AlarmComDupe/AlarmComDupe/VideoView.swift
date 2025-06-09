@@ -44,10 +44,16 @@ struct VideoView: View {
             }.zIndex(2)
             VStack {
                 ScrollView {
-                    ForEach(videos, id: \.self) { video in
-                        CardView(height: 150) {
-                            Text(video)
+                    VStack(spacing: 16) {
+                        ForEach(videos, id: \.self) { video in
+                            CardView {
+                                Text(video)
+                            }
                         }
+                    }
+                    .padding()
+                    .safeAreaInset(edge: .top) {
+                        Color.clear.frame(height: 30)
                     }
                 }
             }

@@ -22,7 +22,7 @@ struct LightsCardView: View {
     @State private var isBedroomLightOn = false
 
     var body: some View {
-        CardView(height: 250) {
+        CardView {
             VStack {
                 HStack {
                     Text("Lights").font(.headline).foregroundColor(Color.gray)
