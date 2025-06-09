@@ -26,15 +26,19 @@ struct BottomNavigationView: View {
                 }
             }.foregroundColor(.black)
             Spacer()
-            VStack {
-                Image(systemName: "waveform.path.ecg")
-                Text("Activity")
-            }
+            NavigationLink(destination: ActivityView()) {
+                VStack {
+                    Image(systemName: "waveform.path.ecg")
+                    Text("Activity")
+                }
+            }.foregroundColor(.black)
             Spacer()
-            VStack {
-                Image(systemName: "line.3.horizontal")
-                Text("Menu")
-            }
+            NavigationLink(destination: MoreView()) {
+                VStack {
+                    Image(systemName: "line.3.horizontal")
+                    Text("More")
+                }
+            }.foregroundColor(.black)
             Spacer()
 
         }.background(Color.white).padding(.top)
