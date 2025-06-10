@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct ActivityView: View {
-    var activityArray: [String] = ["Activity 1", "Activity 2", "Activity 3", "Activity 4", "Activity 5"]
+    @State private var activityItem: [ActivityItem]?
+    private let dataService: ActivityViewDataService = .init()
+    private let formatter: DateFormatter = .init()
 
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -32,15 +34,61 @@ struct ActivityView: View {
             VStack {
                 ScrollView {
                     VStack(spacing: 16) {
-                        ForEach(activityArray, id: \.self) { activity in
-                            CardView {
-                                Text(activity)
+                        HStack{
+                            Text("Today")
+                            Spacer()
+                            Button{}label:
+                            {
+                                Text("Expand All")
+                            }.foregroundColor(.black).background(.gray.opacity(0.2)).cornerRadius(5)
+                        }
+                        if let activities = activityItem {
+                            ForEach(activities) { activity in
+                                CardView {
+                                    VStack(alignment: .center, spacing: 8) {
+                                        HStack {
+                                            Image(systemName: activity.type.iconName)
+                                                .foregroundColor(activity.type.iconName == "lightbulb.fill" ? .yellow : .black)
+                                            VStack(alignment: .leading) {
+                                                Text(activity.location).font(.headline)
+                                                Text(activity.desc).font(.subheadline).foregroundColor(.gray)
+                                            }
+                                            Spacer()
+                                            Text(formatter.string(from: activity.timestamp))
+                                        }
+
+                                        if activity.screenshot != nil {
+                                            Image(activity.screenshot!)
+                                                .resizable()
+                                                .scaledToFit()
+                                                .cornerRadius(8)
+                                        }
+                                    }
+                                }
                             }
+                        } else {
+                            ProgressView("Loading Activity...")
                         }
                     }.padding()
                         .safeAreaInset(edge: .top) {
                             Color.clear.frame(height: 30)
                         }
+                }
+            }.task {
+                formatter.timeStyle = .short
+                formatter.dateStyle = .none
+
+                do {
+                    let data = try await dataService.getActivityData()
+                    activityItem = data
+                } catch ActivityViewItemError.invalidURL {
+                    print("Invalid URL")
+                } catch ActivityViewItemError.invalidData {
+                    print("Invalid Data")
+                } catch ActivityViewItemError.invalidResponse {
+                    print("Invalid Response")
+                } catch {
+                    print("Unexpected Error: \(error)")
                 }
             }
             BottomNavigationView()

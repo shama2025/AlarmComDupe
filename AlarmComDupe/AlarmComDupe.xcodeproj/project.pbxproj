@@ -6,7 +6,14 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		37B46BF72DF7788700513896 /* VideoViewDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B46BF62DF7788700513896 /* VideoViewDataService.swift */; };
+		37B46BFD2DF779F700513896 /* ActivityViewDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B46BFC2DF779F700513896 /* ActivityViewDataService.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		37B46BF62DF7788700513896 /* VideoViewDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VideoViewDataService.swift; path = AlarmComDupe/Services/VideoViewDataService.swift; sourceTree = "<group>"; };
+		37B46BFC2DF779F700513896 /* ActivityViewDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ActivityViewDataService.swift; path = AlarmComDupe/Services/ActivityViewDataService.swift; sourceTree = "<group>"; };
 		37C1BBF72DF38C8800591A49 /* AlarmComDupe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlarmComDupe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -32,6 +39,8 @@
 		37C1BBEE2DF38C8800591A49 = {
 			isa = PBXGroup;
 			children = (
+				37B46BFC2DF779F700513896 /* ActivityViewDataService.swift */,
+				37B46BF62DF7788700513896 /* VideoViewDataService.swift */,
 				37C1BBF92DF38C8800591A49 /* AlarmComDupe */,
 				37C1BBF82DF38C8800591A49 /* Products */,
 			);
@@ -119,6 +128,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37B46BF72DF7788700513896 /* VideoViewDataService.swift in Sources */,
+				37B46BFD2DF779F700513896 /* ActivityViewDataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
