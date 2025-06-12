@@ -34,10 +34,11 @@ struct ActivityView: View {
             VStack {
                 ScrollView {
                     VStack(spacing: 16) {
-                        HStack {
+                        HStack{
                             Text("Today")
                             Spacer()
-                            Button {} label: {
+                            Button{}label:
+                            {
                                 Text("Expand All")
                             }.foregroundColor(.black).background(.gray.opacity(0.2)).cornerRadius(5)
                         }
