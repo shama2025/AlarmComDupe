@@ -7,10 +7,10 @@
 
 import Foundation
 
-class VideoViewDataService : ObservableObject {
+class VideoViewDataService: ObservableObject {
     @Published public var httpDevices: [VideoUrls] = []
     @Published public private(set) var rtspDevices: [VideoDevice] = []
-    
+
     func loadDevices() async {
         do {
             let devices = try await getDevices()
@@ -27,8 +27,7 @@ class VideoViewDataService : ObservableObject {
     }
 
     // Get list of devices
-    func getDevices() async throws -> [VideoDevice]{
-        
+    func getDevices() async throws -> [VideoDevice] {
         let endpoint = "" // Url endpoint for activity
 
 //        guard let url: URL = URL(string: endpoint) else { // Set endpoint to be of type url
@@ -68,15 +67,14 @@ class VideoViewDataService : ObservableObject {
                     id: UUID(uuidString: "d4e5f6a7-b8c9-0def-1234-567890abcdef")!,
                     name: "Office Camera",
                     rtsp_url: "rtsp://192.168.1.13:554/office_view"
-                )
+                ),
             ]
         } catch {
             throw VideoViewItemError.invalidData
         }
     }
-    
+
     func getVideoUrls() async throws -> [VideoUrls]? {
-        
         let endpoint = "" // Url endpoint for activity
 
 //        guard let url: URL = URL(string: endpoint) else { // Set endpoint to be of type url
@@ -118,6 +116,4 @@ class VideoViewDataService : ObservableObject {
             throw VideoViewItemError.invalidData
         }
     }
-    
 }
-        

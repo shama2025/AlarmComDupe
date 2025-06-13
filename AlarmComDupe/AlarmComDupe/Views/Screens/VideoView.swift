@@ -5,15 +5,15 @@
 //  Created by Marcus Shaffer on 6/7/25.
 //
 
-import SwiftUI
 import AVKit
+import SwiftUI
 
 struct VideoView: View {
     @State private var player = AVPlayer()
     @State private var videoUrls: [VideoUrls]?
-    
+
     private let dataService: VideoViewDataService = .init()
-    
+
     var body: some View {
         ZStack(alignment: .bottom) {
             Color(.lightGray).opacity(0.25)
@@ -35,37 +35,37 @@ struct VideoView: View {
                 .shadow(radius: 5)
                 .navigationBarBackButtonHidden(true)
         }.task {
-            do{
+            do {
                 let data = try await dataService.getVideoUrls()
                 videoUrls = data
-            }catch VideoViewItemError.invalidURL{
+            } catch VideoViewItemError.invalidURL {
                 print("Invalid URL")
-            }catch VideoViewItemError.invalidData{
+            } catch VideoViewItemError.invalidData {
                 print("Invalid Data")
-            }catch VideoViewItemError.invalidResponse{
+            } catch VideoViewItemError.invalidResponse {
                 print("Invalid response")
-            }catch{
+            } catch {
                 print(error)
             }
         }
     }
 }
 
-struct VideoPlayerView: View{
+struct VideoPlayerView: View {
     @State var player = AVPlayer()
     @State var url: URL
-    
-    var body: some View{
+
+    var body: some View {
         VideoPlayer(player: player).onAppear {
-                player = AVPlayer(url: url)
-                player.play()
+            player = AVPlayer(url: url)
+            player.play()
         }.frame(height: 300)
     }
 }
 
-struct ToggleButtonView: View{
+struct ToggleButtonView: View {
     @State var isLiveScreen: Bool = true
-    var body: some View{
+    var body: some View {
         Button {
             isLiveScreen = true
         } label: {
@@ -90,12 +90,12 @@ struct ToggleButtonView: View{
 
 struct VideoScrollView: View {
     let urls: [VideoUrls]?
-    
+
     var body: some View {
         ScrollView {
             VStack(spacing: 16) {
                 if let videos = urls {
-                    ForEach(videos) {url in
+                    ForEach(videos) { url in
                         CardView {
                             VideoPlayerView(url: URL(string: url.https_url)!)
                         }
@@ -103,7 +103,6 @@ struct VideoScrollView: View {
                 } else {
                     ProgressView("Loading Video...")
                 }
-              
             }
             .padding()
             .safeAreaInset(edge: .top) {

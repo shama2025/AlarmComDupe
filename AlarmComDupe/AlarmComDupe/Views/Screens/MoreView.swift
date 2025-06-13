@@ -50,7 +50,7 @@ struct MoreView: View {
 
 struct AccountMoreViewData: View {
     let accountElements: [MoreViewListsElements]
-    
+
     var body: some View {
         Text("Account")
             .font(.headline)
@@ -69,7 +69,7 @@ struct AccountMoreViewData: View {
     }
 }
 
-struct SettingsMoreViewData: View{
+struct SettingsMoreViewData: View {
     let settingElements: [MoreViewListsElements]
 
     var body: some View {
@@ -90,9 +90,9 @@ struct SettingsMoreViewData: View{
     }
 }
 
-struct InfoMoreViewData: View{
+struct InfoMoreViewData: View {
     let infoElements: [MoreViewListsElements]
-    
+
     var body: some View {
         Text("More Info")
             .font(.headline)

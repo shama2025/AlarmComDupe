@@ -47,8 +47,7 @@ struct ActivityView: View {
     }
 }
 
-struct ActivityButtons: View{
-    
+struct ActivityButtons: View {
     var body: some View {
         Spacer()
         Text("Title")
@@ -68,15 +67,13 @@ struct ActivityScrollView: View {
     let activityItem: [ActivityItem]?
     let formatter: DateFormatter
 
-    
     var body: some View {
         ScrollView {
             VStack(spacing: 16) {
-                HStack{
+                HStack {
                     Text("Today")
                     Spacer()
-                    Button{}label:
-                    {
+                    Button {} label: {
                         Text("Expand All")
                     }.foregroundColor(.black).background(.gray.opacity(0.2)).cornerRadius(5)
                 }
