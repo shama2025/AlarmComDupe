@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SecuritySystemCardView: View {
     @State var isArmed = true
+    @State private var isSheetPresented = false
 
     var body: some View {
         CardView {
@@ -16,7 +17,13 @@ struct SecuritySystemCardView: View {
                 HStack {
                     Text("Security System").font(.headline).foregroundColor(Color.gray)
                     Spacer()
-                    Image(systemName: "arrow.right")
+                    Button {
+                        isSheetPresented.toggle()
+                    } label: {
+                        Image(systemName: "arrow.right")
+                    }.sheet(isPresented: $isSheetPresented) {
+                        SecuritySystemCardBottomSheet(isArmed: isArmed)
+                    }.foregroundColor(.gray)
                 }
                 Spacer()
                 HStack {
@@ -34,7 +41,6 @@ struct SecuritySystemCardView: View {
                 }
                 Spacer()
             }
-            // Has the ability to swipe and update view
         }
     }
 }

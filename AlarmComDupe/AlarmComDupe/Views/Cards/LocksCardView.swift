@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LocksCardView: View {
     @State var isLocked: Bool = true
+    @State private var isSheetPresented = false
 
     var body: some View {
         CardView {
@@ -16,7 +17,13 @@ struct LocksCardView: View {
                 HStack {
                     Text("Locks").font(.headline).foregroundColor(Color.gray)
                     Spacer()
-                    Image(systemName: "arrow.right")
+                    Button {
+                        isSheetPresented.toggle()
+                    } label: {
+                        Image(systemName: "arrow.right")
+                    }.sheet(isPresented: $isSheetPresented) {
+                        LocksCardBottomSheet(isLocked: isLocked)
+                    }.foregroundColor(.gray)
                 }
                 Spacer()
                 HStack {
