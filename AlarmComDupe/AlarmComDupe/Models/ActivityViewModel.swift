@@ -17,13 +17,13 @@ struct ActivityItem: Decodable, Identifiable {
 }
 
 enum ActionType: String, Decodable {
-    case lights_on = "lights_on"
-    case lights_off = "lights_off"
-    case door_open = "door_open"
-    case door_close = "door_close"
-    case id_animal = "id_animal"
-    case id_person = "id_person"
-    
+    case lights_on
+    case lights_off
+    case door_open
+    case door_close
+    case id_animal
+    case id_person
+
     var iconName: String {
         switch self {
         case .lights_on: return "lightbulb.fill"

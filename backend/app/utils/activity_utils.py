@@ -1,7 +1,9 @@
 # This file handles the utility for the activity view
-from datetime import datetime,timezone
+from datetime import datetime, timezone
 import uuid
 import json
+
+
 def get_activities():
     # Would have a call to a db
     # But due to having a singular user

@@ -30,13 +30,13 @@ class VideoViewDataService: ObservableObject {
     func getDevices() async throws -> [VideoDevice] {
         let endpoint = "http://192.168.0.23:5000/" // Url endpoint for activity
 
-        guard let url: URL = URL(string: endpoint) else { // Set endpoint to be of type url
+        guard let url = URL(string: endpoint) else { // Set endpoint to be of type url
             throw VideoViewItemError.invalidURL
         }
 
-        let (data,response) = try await URLSession.shared.data(from: url)
+        let (data, response) = try await URLSession.shared.data(from: url)
 
-        guard let response:HTTPURLResponse = response as? HTTPURLResponse, response.statusCode == 200 else {
+        guard let response: HTTPURLResponse = response as? HTTPURLResponse, response.statusCode == 200 else {
             throw VideoViewItemError.invalidResponse
         }
 
@@ -44,7 +44,7 @@ class VideoViewDataService: ObservableObject {
             let decoder = JSONDecoder() // Decode the JSON
             decoder.keyDecodingStrategy = .convertFromSnakeCase // Helps convert the data from snake to camel case
 
-            //print(try decoder.decode(ActivityItem.self, from: data)) // Decode data into ActivityItem Object
+            // print(try decoder.decode(ActivityItem.self, from: data)) // Decode data into ActivityItem Object
             print(String(data: data, encoding: .utf8) ?? "Invalid UTF-8 data")
             // May fail, make sure to check property names in ActivityViewModel
 
@@ -78,24 +78,24 @@ class VideoViewDataService: ObservableObject {
     func getVideoUrls() async throws -> [VideoUrls]? {
         let endpoint = "http://192.168.0.23:8000/camera/video" // Url endpoint for activity
 
-       guard let url: URL = URL(string: endpoint) else { // Set endpoint to be of type url
-           throw VideoViewItemError.invalidURL
-       }
+        guard let url = URL(string: endpoint) else { // Set endpoint to be of type url
+            throw VideoViewItemError.invalidURL
+        }
 
-       let (data,response) = try await URLSession.shared.data(from: url)
-        
+        let (data, response) = try await URLSession.shared.data(from: url)
+
         print(data)
         print(response)
 
-       guard let response:HTTPURLResponse = response as? HTTPURLResponse, response.statusCode == 200 else {
-           throw VideoViewItemError.invalidResponse
-       }
+        guard let response: HTTPURLResponse = response as? HTTPURLResponse, response.statusCode == 200 else {
+            throw VideoViewItemError.invalidResponse
+        }
 
         do {
             let decoder = JSONDecoder() // Decode the JSON
             decoder.keyDecodingStrategy = .convertFromSnakeCase // Helps convert the data from snake to camel case
 
-             return try decoder.decode([VideoUrls].self, from: data) // Decode data into ActivityItem Object
+            return try decoder.decode([VideoUrls].self, from: data) // Decode data into ActivityItem Object
 
 //            return [
 //                VideoUrls(
