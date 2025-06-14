@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ActivityItem: Codable, Identifiable {
+struct ActivityItem: Decodable, Identifiable {
     var id: UUID = .init() // Unique ID for each element
     var desc: String // Unique that points to specific image (open, locked)
     var location: String // Location of action (porch, bedroom, front door
@@ -16,14 +16,14 @@ struct ActivityItem: Codable, Identifiable {
     var screenshot: String? // Screenshot of an action, if need be
 }
 
-enum ActionType: String, Codable {
-    case lights_on // Case if action is lights on
-    case lights_off // Case if action is lights off
-    case door_open // Case if action is door opened
-    case door_close // Case if action is door closed
-    case id_animal // Case if action was video and saw animal
-    case id_person // Case if action was video and saw person
-
+enum ActionType: String, Decodable {
+    case lights_on = "lights_on"
+    case lights_off = "lights_off"
+    case door_open = "door_open"
+    case door_close = "door_close"
+    case id_animal = "id_animal"
+    case id_person = "id_person"
+    
     var iconName: String {
         switch self {
         case .lights_on: return "lightbulb.fill"

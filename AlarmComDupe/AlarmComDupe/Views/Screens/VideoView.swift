@@ -97,7 +97,7 @@ struct VideoScrollView: View {
                 if let videos = urls {
                     ForEach(videos) { url in
                         CardView {
-                            VideoPlayerView(url: URL(string: url.https_url)!)
+                            VideoPlayerView(url: URL(string: url.httpsUrl)!)
                         }
                     }
                 } else {

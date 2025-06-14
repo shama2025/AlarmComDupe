@@ -13,14 +13,14 @@ import Foundation
 struct VideoDevice: Codable, Identifiable {
     var id: UUID = .init() // Unique id for VideoDevice
     var name: String // Name of device
-    var rtsp_url: String // RTSP url used for future ffmpeg conversion
+    var rtspUrl: String // RTSP url used for future ffmpeg conversion
 }
 
 // Struct containing https urls for video streaming
-struct VideoUrls: Codable, Identifiable {
+struct VideoUrls: Decodable, Identifiable {
     var id: UUID = .init() // Unique id for VideoDevice
     var name: String // Name of device
-    var https_url: String // Https url, post ffmpeg conversion
+    var httpsUrl: String // Https url, post ffmpeg conversion
 }
 
 // Enum for potential errors when accessing backend

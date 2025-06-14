@@ -1,19 +1,15 @@
-from flask import Flask, Response, request, render_template, send_from_directory
+from flask import Flask, jsonify
+from .utils import video_utils, activity_utils
 
+app = Flask(__name__)
 
-def create_app(test_config=None):
-    app = Flask(__name__)
-
-    app.route("/activity")
-
-    def activities():
+@app.route("/activity")
+def activities():
         # Returns a list of activities
-        return ""
+        return jsonify(activity_utils.get_activities()),200
 
-    app.route("/camera/video")
-
-    def camera_videos():
+@app.route("/camera/video")
+def camera_videos():
         # Returns a list of videos that have a hosted http
-        return ""
-
-    return app
+    return jsonify(video_utils.get_videos_http("tmp")),200
+        
