@@ -9,18 +9,18 @@ import Foundation
 
 struct ActivityViewDataService {
     func getActivityData() async throws -> [ActivityItem] {
-        let endpoint = "" // Url endpoint for activity
+        let endpoint = "http://192.168.0.23:5000/activity" // Url endpoint for activity
 
-//        guard let url: URL = URL(string: endpoint) else { // Set endpoint to be of type url
-//            throw ActivityViewItemError.invalidURL
-//        }
-//
-//        let (data,response) = try await URLSession.shared.data(from: url)
-//
-//        guard let response:HTTPURLResponse = response as? HTTPURLResponse, response.statusCode == 200 else {
-//            throw ActivityViewItemError.invalidResponse
-//        }
-//
+       guard let url: URL = URL(string: endpoint) else { // Set endpoint to be of type url
+           throw ActivityViewItemError.invalidURL
+       }
+
+       let (data,response) = try await URLSession.shared.data(from: url)
+
+       guard let response:HTTPURLResponse = response as? HTTPURLResponse, response.statusCode == 200 else {
+           throw ActivityViewItemError.invalidResponse
+       }
+
         do {
             let decoder = JSONDecoder() // Decode the JSON
             decoder.keyDecodingStrategy = .convertFromSnakeCase // Helps convert the data from snake to camel case

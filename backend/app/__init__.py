@@ -16,10 +16,4 @@ def create_app(test_config=None):
         # Returns a list of videos that have a hosted http
         return ""
 
-    app.route("/appliance")
-
-    def appliances():
-        # Updates a light or lock when turned on or off
-        return ""
-
     return app

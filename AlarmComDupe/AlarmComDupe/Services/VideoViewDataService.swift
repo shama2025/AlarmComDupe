@@ -75,18 +75,18 @@ class VideoViewDataService: ObservableObject {
     }
 
     func getVideoUrls() async throws -> [VideoUrls]? {
-        let endpoint = "" // Url endpoint for activity
+        let endpoint = "http://192.168.0.23:5000/camera/video" // Url endpoint for activity
 
-//        guard let url: URL = URL(string: endpoint) else { // Set endpoint to be of type url
-//            throw VideoViewItemError.invalidURL
-//        }
-//
-//        let (data,response) = try await URLSession.shared.data(from: url)
-//
-//        guard let response:HTTPURLResponse = response as? HTTPURLResponse, response.statusCode == 200 else {
-//            throw VideoViewItemError.invalidResponse
-//        }
-//
+       guard let url: URL = URL(string: endpoint) else { // Set endpoint to be of type url
+           throw VideoViewItemError.invalidURL
+       }
+
+       let (data,response) = try await URLSession.shared.data(from: url)
+
+       guard let response:HTTPURLResponse = response as? HTTPURLResponse, response.statusCode == 200 else {
+           throw VideoViewItemError.invalidResponse
+       }
+
         do {
             let decoder = JSONDecoder() // Decode the JSON
             decoder.keyDecodingStrategy = .convertFromSnakeCase // Helps convert the data from snake to camel case
